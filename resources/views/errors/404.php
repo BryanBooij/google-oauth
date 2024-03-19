@@ -12,7 +12,7 @@
 <p>Page not found.</p>
 
 <p>Tried to access: <?php echo url()->current(); ?></p>
-<p>Base URL: <?php echo url()::app_url(); ?></p>
+<p>Base URL: <?php echo url()::base_url(); ?></p>
 
 <?php echo view('partials.footer')->render(); ?>
 
