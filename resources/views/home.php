@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+<br>
 <a href="<?php echo route('account') ?>">account</a><br>
 
 <a href="<?php echo route('logout') ?>">Logout</a>

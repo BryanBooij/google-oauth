@@ -12,8 +12,6 @@ use Framework\Http\Response;
 use Google_Client;
 use Google_Service_Oauth2;
 
-require 'vendor/autoload.php';
-
 class HomeController
 {
     private EmailService $email_service;
@@ -31,8 +29,8 @@ class HomeController
      */
     public function auth(Request $request): RedirectResponse
     {
-        $this->email_service->send_email();
-
+        $email = $_SESSION['user_account']->getEmail();
+        $this->email_service->send_email($email);
         return redirect('home');
     }
 
@@ -44,8 +42,6 @@ class HomeController
      */
     public function home(Request $request): View
     {
-        $this->email_service->send_email();
-
         return view('home');
     }
 
@@ -56,7 +52,6 @@ class HomeController
     public function account(Request $request): View
     {
         $account = session()->get('account_info');
-        // var_dump($accessToken);
 
         return view('account')->with('account', $account);
     }
