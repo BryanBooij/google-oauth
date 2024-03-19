@@ -32,6 +32,7 @@ $app = new Application(__DIR__);
 Config::set_many(
     [
         'app' => include base_path('/config/app.php'),
+        'smtp' => include base_path('/config/smtp.php')
     ]
 );
 

@@ -1,4 +1,5 @@
 config/api.php
+config/smtp.php
 .idea
 storage/Framework/cache/
 vendor/

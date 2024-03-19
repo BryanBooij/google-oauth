@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -14,17 +15,17 @@ class EmailService
 
         try {
             // mail information
-            $mail_FROM = 'bryan@touchtree.tech';
+            $mail_FROM = config('smtp.username');
             $user_RCPT = $email;
 
             // SMTP server settings
             $mail->isSMTP();
             $mail->Host = 'smtp.elasticemail.com';  // SMTP hostname
             $mail->SMTPAuth = true;
-            $mail->Username = 'bryan@touchtree.tech';  // SMTP username
-            $mail->Password = '429F1CB709FB826771E8D774A9A99689883A'; //SMTP password
-            $mail->SMTPSecure = 'tls'; // Enable TLS encryption
-            $mail->Port = 2525; // TCP port to connect to
+            $mail->Username = config('smtp.username');  // SMTP username
+            $mail->Password = config('smtp.password'); //SMTP password
+            $mail->SMTPSecure = config('port'); // Enable TLS encryption
+            $mail->Port = config('smtpSecure'); // TCP port to connect to
 
             // Sender and recipient settings
             $mail->setFrom($mail_FROM);
